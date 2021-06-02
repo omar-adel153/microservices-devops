@@ -1,1 +1,52 @@
-<paste log output from Kubernetes-mediated prediction, here>
+oadel@DESKTOP-UF26O7G:/mnt/e/Udacity/docker/project/microservices-devops$ ./run_kubernetes.sh 
+pod/ml-microservice created
+NAME              READY   STATUS    RESTARTS   AGE
+ml-microservice   1/1     Running   0          5s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+Handling connection for 8000
+Handling connection for 8000
+
+
+
+oadel@DESKTOP-UF26O7G:/mnt/e/Udacity/docker/project/microservices-devops$ kubectl logs ml-microservice
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 224-147-817
+[2021-06-02 21:51:21,108] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-06-02 21:51:21,117] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-06-02 21:51:21,123] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-06-02 21:51:21,125] INFO in app: Output Prediction: [20.35373177134412]
+127.0.0.1 - - [02/Jun/2021 21:51:21] "POST /predict HTTP/1.1" 200 -
+[2021-06-02 21:51:22,236] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-06-02 21:51:22,243] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-06-02 21:51:22,250] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-06-02 21:51:22,252] INFO in app: Output Prediction: [20.35373177134412]
+127.0.0.1 - - [02/Jun/2021 21:51:22] "POST /predict HTTP/1.1" 200 -
+[2021-06-02 21:51:22,819] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-06-02 21:51:22,827] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-06-02 21:51:22,834] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-06-02 21:51:22,836] INFO in app: Output Prediction: [20.35373177134412]
+127.0.0.1 - - [02/Jun/2021 21:51:22] "POST /predict HTTP/1.1" 200 -
